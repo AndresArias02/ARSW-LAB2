@@ -1,0 +1,17 @@
+Documento de Respuestas
+
+1. Las serpientes estan definidas como un vector de hilos, por lo cual se pueden generar n cantidad de serpientes con movimientos independientes relacionando un identificador como lo puede ser en este caso la Cabeza de la serpiente y un método como randomMovement el cual genera una dirección aleatoria para cada serpiente desde el constructor.
+
+2. 
+
+- Condiciones de carrera: 
+ a. Las serpientes al tener movimiento a una dirección aleatoria se debe evitar que estas puedan moverse sobre su propio cuerpo ya que esto	no es posible en la práctica
+ b. Es posible que 2 o más serpientes se encuentren en direcciónes iguales y alcancen al mismo tiempo un objeto dentro del tablero lo que 	causaría una colisión y se debe definir a qué serpiente se le asigna la ventaja de la celda
+- Uso inadecuado de colecciónes:
+ 	El "cuerpo" de la serpiente se encuentra agrupado en un Linkedlist lo que dificulta su desplazamiento
+- Uso innecesario de esperas activas:
+	El estado de una serpiente se ve definido por medio de un condicional dentro del método de ejecución del hilo, lo cual hace que el 	método realice comprobaciones indeterminadas hasta que se cumpla esta condición.
+
+3. Solución a las condiciones de carrera:
+- Es necesario poner un estado sobre las celdas que se encuentran ocupadas para que así las serpientes no puedan moverse sobre su propio cuerpo
+- con el uso de bloques sincronizados se logra definir un "orden de llegada" para cada hilo que representan las serpientes, con el fin de asignarle la ventaja a solo una serpiente
